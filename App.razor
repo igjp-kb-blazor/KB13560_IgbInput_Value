@@ -1,0 +1,19 @@
+﻿<div style="max-width:300px; margin:auto">
+    <IgbInput style="padding:15px"
+              DisplayType=InputType.Number
+              Value="@doubleValue.ToString()"
+              ValueChanging="OnValueChanging" />
+    <span style="padding:15px">現在の値：@doubleValue</span>
+</div>
+
+@code {
+    double doubleValue = 0;
+
+    public void OnValueChanging(string args)
+    {
+        if (double.TryParse(args, out var number))
+        {
+            doubleValue = number;
+        }
+    }
+}
